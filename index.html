@@ -3,18 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tombola Sayı Okuyucu</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tombala Sayı Okuyucu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #d62828;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #numberDisplay {
+            font-size: 48px;
+            font-weight: bold;
+            color: #003049;
+            margin-top: 20px;
+        }
+        #history {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Tombola Sayı Okuyucu</h1>
-        <button id="startBtn">Başlat</button>
-        <button id="stopBtn">Durdur</button>
-        <div id="numberDisplay">🎄</div>
-        <div id="history"></div>
-    </div>
+
+    <h1>Tombala Sayı Okuyucu</h1>
+    <button id="startBtn">Başlat</button>
+    <button id="stopBtn">Durdur</button>
+
+    <p>Hız: <span id="speedDisplay">3 saniye</span></p>
+    <button id="speedUp">Hızlandır (-1sn)</button>
+    <button id="slowDown">Yavaşlat (+1sn)</button>
+
+    <h2>Çıkan Sayı:</h2>
+    <div id="numberDisplay">-</div>
+    <h2>Geçmiş Sayılar:</h2>
+    <div id="history"></div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
