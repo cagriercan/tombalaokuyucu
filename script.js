@@ -17,12 +17,9 @@ function updateSpeedDisplay() {
 
 function speakNumber(num) {
     if ('speechSynthesis' in window) {
-        let utterance = new SpeechSynthesisUtterance();
-
-        utterance.lang = "tr-TR"; // Türkçe dili seçildi
-        utterance.rate = 1; // Normal hızda konuş
-        utterance.pitch = 1; // Ses tonunu dengeli yap
-        utterance.volume = 1; // Ses seviyesini tam yap
+        let utterance = new SpeechSynthesisUtterance(num.toString());
+        utterance.lang = "tr-TR";
+        utterance.rate = 1;
 
         // 📌 iPhone için özel Türkçe ses seçimi
         let voices = speechSynthesis.getVoices();
@@ -32,14 +29,7 @@ function speakNumber(num) {
             utterance.voice = turkishVoice; // En iyi Türkçe sesi seç
         }
 
-        // 📌 Sayıları daha doğru okutmak için TEK TEK okutuyoruz
-        let numStr = num.toString().split("").join(" ");
-        utterance.text = numStr; // Örneğin 45 yerine "4 5" olarak okur
-
         speechSynthesis.speak(utterance);
-    }
-}
-
     }
 }
 
