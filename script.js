@@ -20,6 +20,15 @@ function speakNumber(num) {
         let utterance = new SpeechSynthesisUtterance(num.toString());
         utterance.lang = "tr-TR";
         utterance.rate = 1;
+
+        // 📌 iPhone için özel Türkçe ses seçimi
+        let voices = speechSynthesis.getVoices();
+        let turkishVoice = voices.find(voice => voice.lang === "tr-TR");
+
+        if (turkishVoice) {
+            utterance.voice = turkishVoice; // En iyi Türkçe sesi seç
+        }
+
         speechSynthesis.speak(utterance);
     }
 }
